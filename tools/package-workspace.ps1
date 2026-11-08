@@ -11,8 +11,13 @@ $checksumPath = "$archivePath.sha256"
 $packageItems = @(
     (Join-Path $kitRoot 'AGENTS.md'),
     (Join-Path $kitRoot 'DEPLOY.md'),
+    (Join-Path $kitRoot 'README.md'),
     (Join-Path $kitRoot '.gitignore'),
+    (Join-Path $kitRoot 'package.json'),
+    (Join-Path $kitRoot 'package-lock.json'),
+    (Join-Path $kitRoot 'bin'),
     (Join-Path $kitRoot 'skills'),
+    (Join-Path $kitRoot 'test'),
     (Join-Path $kitRoot 'tools')
 )
 

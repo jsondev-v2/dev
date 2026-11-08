@@ -3,6 +3,11 @@
 
 # Generated distribution packages.
 /dist/
+/*.tgz
+
+# Local Node installation and logs.
+/node_modules/
+npm-debug.log*
 
 # Per-task AI working state may contain local paths and should remain device-local.
 **/.agent/cache/

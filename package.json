@@ -1,0 +1,31 @@
+{
+  "name": "single-agent-project-steward",
+  "version": "1.0.0",
+  "description": "Install consistent single-agent governance, clean-code, security, scoped-cache, and restrained UI/UX rules into an existing Codex project.",
+  "type": "commonjs",
+  "bin": {
+    "single-agent-project-steward": "bin/agent-steward.js",
+    "agent-steward": "bin/agent-steward.js"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "README.md",
+    "DEPLOY.md"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "pack:check": "npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "codex",
+    "agent-skill",
+    "ai-governance",
+    "clean-code",
+    "secure-development",
+    "ui-ux"
+  ]
+}

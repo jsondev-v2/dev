@@ -27,7 +27,7 @@ Run these commands from this directory, replacing the placeholder URL:
 
 ```powershell
 git init
-git add AGENTS.md DEPLOY.md .gitignore skills tools
+git add AGENTS.md DEPLOY.md README.md .gitignore package.json package-lock.json bin skills test tools
 git diff --cached
 git commit -m "Add shared single-agent project governance"
 git branch -M main
@@ -83,12 +83,63 @@ To make the skill available only inside a particular repository:
 
 The installer writes to `<project>/.codex/skills/single-agent-project-steward`. Commit that copy only when the project itself should carry the skill.
 
+## 6A. Install into an old project with npx
+
+Before npm publication, run the CLI directly from the private GitHub repository:
+
+```powershell
+Set-Location C:\path\to\old-project
+npx github:OWNER/REPOSITORY init .
+npx github:OWNER/REPOSITORY doctor .
+```
+
+After publishing the package to npm:
+
+```powershell
+Set-Location C:\path\to\old-project
+npx single-agent-project-steward init .
+```
+
+For an existing installation:
+
+```powershell
+npx single-agent-project-steward update .
+```
+
+The CLI preserves existing project rules and profiles. It updates only its marked `AGENTS.md` block and creates a recoverable backup before replacing an installed skill.
+
+To inspect changes without writing:
+
+```powershell
+npx single-agent-project-steward init . --dry-run
+```
+
+## 6B. Publish the npx package
+
+The package name `single-agent-project-steward` was unregistered when this kit was prepared, but npm names are not reserved until publication.
+
+Validate the exact package contents first:
+
+```powershell
+npm test
+npm run pack:check
+```
+
+For a public package:
+
+```powershell
+npm login
+npm publish --access public
+```
+
+Publishing is an external action. Review `npm pack --dry-run` output and confirm no private project files or secrets are included before running `npm publish`.
+
 ## 7. Keep devices synchronized
 
 On the device where you update the source:
 
 ```powershell
-git add AGENTS.md DEPLOY.md .gitignore skills tools
+git add AGENTS.md DEPLOY.md README.md .gitignore package.json package-lock.json bin skills test tools
 git diff --cached
 git commit -m "Update agent governance"
 git push
