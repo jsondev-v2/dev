@@ -1,0 +1,6 @@
+interface:
+  display_name: "Single-Agent Project Steward"
+  short_description: "Consistent one-agent governance across projects"
+  default_prompt: "Use $single-agent-project-steward to handle this project with one accountable agent and strict project boundaries."
+policy:
+  allow_implicit_invocation: true

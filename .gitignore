@@ -1,0 +1,15 @@
+# Local projects are separate repositories and must not be uploaded with this kit.
+/projects/
+
+# Generated distribution packages.
+/dist/
+
+# Per-task AI working state may contain local paths and should remain device-local.
+**/.agent/cache/
+
+# Recoverable backups created by the installer.
+**/.codex/skills/*.backup-*/
+
+# Common operating-system files.
+.DS_Store
+Thumbs.db
